@@ -1,8 +1,6 @@
-from datetime import time
 from bs4 import BeautifulSoup
-import json, random, re, requests
+import requests
 import pandas as pd
-import csv   
 
 page = str(input("Page : "))
 url = "https://indeks.kompas.com/?page="+page
@@ -40,7 +38,6 @@ for p in soup.find_all("div", {"class":"article__list clearfix"}):
 
 print(data_berita)
 
-data_berita.to_csv("news_kompas.csv", index=False)
-print("\nData Sudah Tersimpan dengan nama : news_kompas.csv")
-
-data_berita.to_csv('news_kompas.csv', mode='a', index=False, header=False)
+# data_berita.to_csv("news_kompas.csv", index=False)
+# print("\nData Sudah Tersimpan dengan nama : news_kompas.csv")
+# data_berita.to_csv('news_kompas.csv', mode='a', index=False, header=False)
