@@ -8,7 +8,7 @@ class BeritaKompas():
         self.article = None
         self.articles = None
     
-    def open_url(self):
+    def _open_url(self):
         """
         open indeks.kompas.com by one page only
         """
@@ -19,7 +19,7 @@ class BeritaKompas():
         
         return self.articles
 
-    def extract_title(self):
+    def _extract_title(self):
         """
         extract news title
         """
@@ -29,7 +29,7 @@ class BeritaKompas():
             
             return title
         
-    def extract_category(self):
+    def _extract_category(self):
         """
         extract news category
         """
@@ -38,7 +38,7 @@ class BeritaKompas():
             
             return category
         
-    def extract_date_and_time(self):
+    def _extract_date_and_time(self):
         """
         extract news date and time
         """
@@ -50,7 +50,7 @@ class BeritaKompas():
             
             return (extracted_date, extracted_time)
 
-    def extract_news_url(self):
+    def _extract_news_url(self):
         """
         extract news URL
         """
@@ -64,15 +64,15 @@ class BeritaKompas():
         scrap indeks.kompas.com news list
         """
         self.url = url
-        self.articles = self.open_url()
+        self.articles = self._open_url()
 
         news_list = []
 
         for self.article in self.articles:
-            news_title = self.extract_title()
-            news_category = self.extract_category()
-            news_datetime = self.extract_date_and_time()
-            news_url = self.extract_news_url()
+            news_title = self._extract_title()
+            news_category = self._extract_category()
+            news_datetime = self._extract_date_and_time()
+            news_url = self._extract_news_url()
             data = {
                 'judul': news_title,
                 'kategori': news_category,
